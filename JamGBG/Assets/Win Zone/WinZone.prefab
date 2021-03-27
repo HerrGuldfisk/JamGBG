@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: newPlayer
-  myColor: 0
+  myColor: 3
 --- !u!1 &5985889292409377510
 GameObject:
   m_ObjectHideFlags: 0

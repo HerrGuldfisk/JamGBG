@@ -8,16 +8,19 @@ public class WinZoneOwner : MonoBehaviour
     public string playerID = "newPlayer";
 
     SpriteRenderer mySpriteRenderer;
+    SpriteRenderer childSpriteRenderer;
 
     Color newColor;
 
-    public MyColor myColor = new MyColor();
+    Color[] colors = {Color.blue, Color.red, 
+        Color.green, Color.yellow, Color.magenta};
+
+    public MyColor myColor;
 
     // Start is called before the first frame update
     void Start()
     {
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
-        mySpriteRenderer.color = newColor;
+        updateMyColor();
     }
 
     // Update is called once per frame
@@ -25,13 +28,23 @@ public class WinZoneOwner : MonoBehaviour
     {
         
     }
+
+    void updateMyColor()
+    {
+        newColor = colors[(int)myColor];
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRenderer.color = newColor;
+
+        childSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        childSpriteRenderer.color = newColor;
+    }
+
     public enum MyColor
     {
-        Blue,
-        Red,
-        Green,
-        Yellow,
-        Orange
+        Blue = 0,
+        Red = 1,
+        Green = 2,
+        Yellow = 3,
+        Magenta = 4
     };
-
 }

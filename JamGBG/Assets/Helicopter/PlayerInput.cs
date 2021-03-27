@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Chopper/PlayerInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Helicopter/PlayerInput.inputactions'
 
 using System;
 using System.Collections;
