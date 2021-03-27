@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc0b451b5dfe7e45a0cfc57bde7418f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 10
 --- !u!114 &5487766854239792420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,9 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25943d1f4e1b5c44cad23cae3623050e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brick: {fileID: 0}
+  brick: {fileID: 4965283168468006897, guid: d570abd9fafef5940ab97ae73145f433, type: 3}
   autoDrop: 1
-  timer: 3
+  timer: 2
   isOverlap: 0
 --- !u!61 &5487766854239792473
 BoxCollider2D:
