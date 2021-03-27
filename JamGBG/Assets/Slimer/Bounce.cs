@@ -47,6 +47,8 @@ public class Bounce : MonoBehaviour
                 newMaterial.bounciness = 1;
                 cldr.sharedMaterial = newMaterial;
                 cldr.enabled = true;
+
+                cldr.GetComponent<SpriteRenderer>().color = Color.green;
             } 
         }
         ParticleSystem exp = GetComponent<ParticleSystem>();

@@ -45,6 +45,8 @@ public class Freeze : MonoBehaviour
             foreach (Rigidbody2D rb in rbodies)
             {
                 rb.bodyType = RigidbodyType2D.Static;
+
+                rb.GetComponent<SpriteRenderer>().color = Color.blue;
             } 
         }
         ParticleSystem exp = GetComponent<ParticleSystem>();
