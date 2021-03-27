@@ -42,9 +42,11 @@ public class Bounce : MonoBehaviour
         {
             foreach (Collider2D cldr in cldrs)
             {
-                //Vector2 direction = rb.transform.position - transform.position;
-                //rb.AddForceAtPosition(direction.normalized * power, transform.position, ForceMode2D.Impulse);
-                cldr.sharedMaterial = (PhysicsMaterial2D)Resources.Load("Assets/Slimer/BouncyPM");
+                cldr.enabled = false;
+                PhysicsMaterial2D newMaterial = Instantiate(cldr.sharedMaterial);
+                newMaterial.bounciness = 1;
+                cldr.sharedMaterial = newMaterial;
+                cldr.enabled = true;
             } 
         }
         ParticleSystem exp = GetComponent<ParticleSystem>();

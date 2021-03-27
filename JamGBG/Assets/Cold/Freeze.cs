@@ -44,8 +44,6 @@ public class Freeze : MonoBehaviour
         {
             foreach (Rigidbody2D rb in rbodies)
             {
-                //Vector2 direction = rb.transform.position - transform.position;
-                //rb.AddForceAtPosition(direction.normalized * power, transform.position, ForceMode2D.Impulse);
                 rb.bodyType = RigidbodyType2D.Static;
             } 
         }
