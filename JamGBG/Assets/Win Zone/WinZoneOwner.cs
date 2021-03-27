@@ -16,7 +16,6 @@ public class WinZoneOwner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //newColor = Color.myColor;
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         mySpriteRenderer.color = newColor;
     }
@@ -28,11 +27,11 @@ public class WinZoneOwner : MonoBehaviour
     }
     public enum MyColor
     {
-        blue,
-        bed,
-        green,
-        yellow,
-        orange
+        Blue,
+        Red,
+        Green,
+        Yellow,
+        Orange
     };
 
 }
