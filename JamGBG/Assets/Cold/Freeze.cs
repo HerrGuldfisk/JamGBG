@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Freeze : MonoBehaviour
 {
-    private float power = 25f;
     private float radius = 5f;
 
     private List<Rigidbody2D> rbList = new List<Rigidbody2D>();

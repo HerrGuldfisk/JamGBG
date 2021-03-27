@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-    private float power = 25f;
     private float radius = 5f;
 
     private List<Collider2D> cldrList = new List<Collider2D>();
