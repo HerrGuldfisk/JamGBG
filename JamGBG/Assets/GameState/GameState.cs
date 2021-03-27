@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
 public class GameState : MonoBehaviour
@@ -23,6 +24,6 @@ public class GameState : MonoBehaviour
 
 	public void OnReload()
 	{
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
