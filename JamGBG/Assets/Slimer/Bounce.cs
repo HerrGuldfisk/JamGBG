@@ -42,6 +42,11 @@ public class Bounce : MonoBehaviour
         {
             foreach (Collider2D cldr in cldrs)
             {
+                if (cldr.GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Dynamic)
+                {
+                    cldr.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                }
+
                 cldr.enabled = false;
                 PhysicsMaterial2D newMaterial = Instantiate(cldr.sharedMaterial);
                 newMaterial.bounciness = 1;

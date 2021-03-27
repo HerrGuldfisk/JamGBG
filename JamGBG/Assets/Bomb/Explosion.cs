@@ -17,6 +17,11 @@ public class Explosion : MonoBehaviour
         {
             Rigidbody2D rb = cldr.GetComponent<Rigidbody2D>();
 
+            if (cldr.bounciness == 1)
+            {
+                return;
+            }
+
             rbList.Clear();
 
             if (cldr.CompareTag("Brick"))
@@ -44,6 +49,12 @@ public class Explosion : MonoBehaviour
         {
             foreach (Rigidbody2D rb in rbodies)
             {
+                if (rb.bodyType != RigidbodyType2D.Dynamic)
+                { 
+                    rb.bodyType = RigidbodyType2D.Dynamic;
+                    //rb.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+
                 Vector2 direction = rb.transform.position - transform.position;
                 rb.AddForceAtPosition(direction.normalized * power, transform.position, ForceMode2D.Impulse);
             } 
