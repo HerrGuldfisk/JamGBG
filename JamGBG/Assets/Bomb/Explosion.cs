@@ -5,20 +5,28 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     private float power = 10f;
-    private float radius = 1.5f;
+    private float radius = 50f;
 
     private List<Rigidbody2D> rbList = new List<Rigidbody2D>();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+        Collider2D cldr = collision.collider;
 
-        if (rb != null)
+        if (cldr != null)
         {
+            Rigidbody2D rb = cldr.GetComponent<Rigidbody2D>();
+
             rbList.Clear();
-            rbList.Add(rb);
+
+            if (cldr.CompareTag("Brick"))
+            {
+                rbList.Add(rb);
+            }
+
             // Kan optimeras med OverlapCircle
             Collider2D[] radiusCheck = Physics2D.OverlapCircleAll(transform.position, radius);
+
             for (int i = 0; i < radiusCheck.Length; i++)
             {
                 if (radiusCheck[i].CompareTag("Brick"))
@@ -38,8 +46,8 @@ public class Explosion : MonoBehaviour
             {
                 Vector2 direction = rb.transform.position - transform.position;
                 rb.AddForceAtPosition(direction.normalized * power, transform.position, ForceMode2D.Impulse);
-            }
-            Destroy(gameObject);
+            } 
         }
+        Destroy(gameObject);
     }
 }
