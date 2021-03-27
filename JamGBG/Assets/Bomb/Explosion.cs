@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    public float power = 1f;
-    public float radius = .1f;
+    private float power = 10f;
+    private float radius = 1.5f;
 
-    public List<Rigidbody2D> rbList = new List<Rigidbody2D>();
+    private List<Rigidbody2D> rbList = new List<Rigidbody2D>();
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
