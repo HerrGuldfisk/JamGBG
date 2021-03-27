@@ -15,7 +15,7 @@ public class SpawnCheck : MonoBehaviour
     {
         if (delay > 0)
         {
-            if (collision.transform.CompareTag("Brick"))
+            if (collision.transform.CompareTag("Brick")) 
             {
                 Destroy(gameObject);
             }
