@@ -10,32 +10,21 @@ public class Drop : MonoBehaviour
 	public bool autoDrop;
 	public float timer = 3f;
 
+	public float horizontalSpeed = 5f;
+
 	float timeLeft;
 
 	[HideInInspector] public bool isOverlap;
 
 	AudioSource audioSource;
 
+	Rigidbody2D nextBody2D;
+
     // Start is called before the first frame update
     void Start()
     {
 		audioSource = GetComponent<AudioSource>();
 		timeLeft = timer;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-		if (autoDrop)
-		{
-			timeLeft -= Time.deltaTime;
-
-			if(timeLeft <= 0f)
-			{
-				DropBrick();
-				timeLeft = timer;
-			}
-		}
     }
 
 	public void OnAction(InputValue action)
@@ -45,7 +34,6 @@ public class Drop : MonoBehaviour
 			return;
 		}
 
-		DropBrick();
 	}
 
 	public void DropBrick()
@@ -56,7 +44,20 @@ public class Drop : MonoBehaviour
 			return;
 		}
 
-		Instantiate(brick, transform.position, Quaternion.identity);
+		if (nextBody2D)
+		{
+			nextBody2D.simulated = true;
+			nextBody2D.transform.SetParent(null);
+			nextBody2D.velocity = new Vector2(GetComponent<HeliMove>().dir.x * horizontalSpeed / 5f, 0);
+		}
+
+		StartCoroutine(SpawnAfterDelay(0.8f));
+	}
+
+	IEnumerator SpawnAfterDelay(float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		nextBody2D = Instantiate(brick, transform.position + new Vector3(0, -1, 0), Quaternion.identity, transform).GetComponent<Rigidbody2D>();
 	}
 
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7036063421106310483}
   - component: {fileID: 4873410468739525609}
   - component: {fileID: 3437673946404111417}
+  - component: {fileID: -8248819504018042129}
   - component: {fileID: -4195091923979877591}
   - component: {fileID: 1446961559658643274}
   - component: {fileID: 8957450091133183212}
@@ -126,7 +127,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4965283168468006897}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a19d9455a1a50a4ba47882457f01d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chance: 20
+  chance: 1
 --- !u!114 &4873410468739525609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +174,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43eb7424441cc1b4cb423b2b71d7580b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8248819504018042129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965283168468006897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7797801be10470145bdc50a9c47621c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-4195091923979877591

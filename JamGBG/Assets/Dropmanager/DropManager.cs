@@ -15,16 +15,21 @@ public class DropManager : MonoBehaviour
 	private int[] dropChance;
 	private int maxChance;
 
-	Drop[] playerDrops;
+	[HideInInspector] public List<Drop> playerDrops;
 
 	private int currentPlayer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-		playerDrops = FindObjectsOfType<Drop>();
+		Drop[] tempdrop = FindObjectsOfType<Drop>();
 
-		timeBetweenPlayers = timeBetweenRounds / playerDrops.Length;
+		for(int i = 0; i < tempdrop.Length; i++)
+		{
+			playerDrops.Add(tempdrop[i]);
+		}
+
+		timeBetweenPlayers = timeBetweenRounds / playerDrops.Count;
 
 		timeLeft = timeBetweenRounds;
 
@@ -32,7 +37,10 @@ public class DropManager : MonoBehaviour
 
 		CreateDropNumber();
 
-		print(maxChance);
+		foreach(int i in dropChance)
+		{
+			print(i);
+		}
     }
 
 	// Update is called once per frame
@@ -43,11 +51,10 @@ public class DropManager : MonoBehaviour
 		if (timeLeft <= 0f)
 		{
 			playerDrops[currentPlayer].DropBrick();
-
 			NextDrop();
 
 			currentPlayer++;
-			if(currentPlayer >= playerDrops.Length)
+			if(currentPlayer >= playerDrops.Count)
 			{
 				currentPlayer = 0;
 			}
@@ -68,7 +75,7 @@ public class DropManager : MonoBehaviour
 		{
 			float tempChance = dropables[i].GetComponent<BrickChance>().chance * 10;
 			maxChance += (int)tempChance;
-			dropChance[i] = (int)maxChance;
+			dropChance[i] = maxChance;
 		}
 	}
 
@@ -79,11 +86,18 @@ public class DropManager : MonoBehaviour
 		{
 			if(tempNumber <= dropChance[i])
 			{
+				Debug.Log(dropables[i].name);
 				return dropables[i];
 			}
 		}
 
 		Debug.LogWarning("Shouldn't get here...");
 		return null;
+	}
+
+	public void NewPlayerJoin(Drop newPlayer)
+	{
+		playerDrops.Add(newPlayer);
+		timeBetweenPlayers = timeBetweenRounds / playerDrops.Count;
 	}
 }

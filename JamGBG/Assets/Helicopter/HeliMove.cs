@@ -7,13 +7,14 @@ using UnityEngine.InputSystem;
 public class HeliMove : MonoBehaviour
 {
 
-	float dir;
+	public Vector2 dir;
 	public float speed = 3;
     // Start is called before the first frame update
 
 	public void OnMove(InputValue input)
 	{
-		dir = input.Get<Vector2>().x;
+		dir = input.Get<Vector2>();
+		Debug.Log(dir.x);
 	}
 
 	private void Update()
@@ -23,6 +24,6 @@ public class HeliMove : MonoBehaviour
 
 	private void Move()
 	{
-		transform.position += new Vector3(dir, 0, 0) * speed * Time.deltaTime;
+		transform.position += new Vector3(dir.x, 0, 0) * speed * Time.deltaTime;
 	}
 }

@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 718558647063546898, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: timeBetweenRounds
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546898, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: dropables.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546898, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: dropables.Array.data[1]
+      value: 
+      objectReference: {fileID: 4965283168468006897, guid: 30aadbaf45f5e2a4a8f87c537ae3ff42, type: 3}
     - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -809,6 +821,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5487766854239792472, guid: ce049c180d440da499c1481064a53c8a, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5487766854239792474, guid: ce049c180d440da499c1481064a53c8a, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -885,6 +901,10 @@ PrefabInstance:
     - target: {fileID: 5487766854239792421, guid: ce049c180d440da499c1481064a53c8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487766854239792472, guid: ce049c180d440da499c1481064a53c8a, type: 3}
+      propertyPath: speed
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5487766854239792474, guid: ce049c180d440da499c1481064a53c8a, type: 3}
       propertyPath: m_Color.b
@@ -963,6 +983,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5487766854239792472, guid: ce049c180d440da499c1481064a53c8a, type: 3}
+      propertyPath: speed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5487766854239792474, guid: ce049c180d440da499c1481064a53c8a, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -1034,7 +1058,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16.626083
+  orthographic size: 18.632769
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

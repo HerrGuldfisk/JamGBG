@@ -8,9 +8,9 @@ using UnityEngine.InputSystem;
 public class GameState : MonoBehaviour
 {
     public static bool winstate = false;
-    static CanvasGroup winScreen;
+    public static CanvasGroup winScreen;
 
-    private void Awake()
+    private void Start()
     {
         winScreen = GameObject.FindGameObjectWithTag("WinScreen").GetComponent<CanvasGroup>();
     }
@@ -25,5 +25,7 @@ public class GameState : MonoBehaviour
 	public void OnReload()
 	{
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		winstate = false;
+		winScreen.alpha = 0;
 	}
 }
