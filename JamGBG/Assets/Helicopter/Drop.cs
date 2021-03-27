@@ -48,7 +48,7 @@ public class Drop : MonoBehaviour
 		DropBrick();
 	}
 
-	void DropBrick()
+	public void DropBrick()
 	{
 		if (isOverlap)
 		{
