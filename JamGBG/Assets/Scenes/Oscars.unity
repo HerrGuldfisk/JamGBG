@@ -213,6 +213,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 929082167280385779, guid: 13e3251d598da93469b6dfbcefd59b58, type: 3}
+      propertyPath: myColor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 929082167280385779, guid: 13e3251d598da93469b6dfbcefd59b58, type: 3}
+      propertyPath: playerID
+      value: Douglas
+      objectReference: {fileID: 0}
     - target: {fileID: 1123230030079968462, guid: 13e3251d598da93469b6dfbcefd59b58, type: 3}
       propertyPath: m_RootOrder
       value: 1

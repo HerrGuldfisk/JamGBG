@@ -8,7 +8,6 @@ public class WinZoneOwner : MonoBehaviour
     public string playerID = "newPlayer";
 
     SpriteRenderer mySpriteRenderer;
-    SpriteRenderer childSpriteRenderer;
 
     Color newColor;
 
@@ -34,9 +33,6 @@ public class WinZoneOwner : MonoBehaviour
         newColor = colors[(int)myColor];
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         mySpriteRenderer.color = newColor;
-
-        childSpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        childSpriteRenderer.color = newColor;
     }
 
     public enum MyColor
