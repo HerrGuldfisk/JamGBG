@@ -5,18 +5,20 @@ using UnityEngine;
 public class WinZoneOwner : MonoBehaviour
 {
     [SerializeField]
-    private string playerID = "newPlayer";
+    public string playerID = "newPlayer";
 
-    SpriteRenderer m_SpriteRenderer;
-    Color m_NewColor;
+    SpriteRenderer mySpriteRenderer;
 
-    float m_Red, m_Blue, m_Green;
+    Color newColor;
+
+    public MyColor myColor = new MyColor();
 
     // Start is called before the first frame update
     void Start()
     {
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        m_SpriteRenderer.color = m_NewColor;
+        //newColor = Color.myColor;
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRenderer.color = newColor;
     }
 
     // Update is called once per frame
@@ -24,4 +26,13 @@ public class WinZoneOwner : MonoBehaviour
     {
         
     }
+    public enum MyColor
+    {
+        blue,
+        bed,
+        green,
+        yellow,
+        orange
+    };
+
 }
