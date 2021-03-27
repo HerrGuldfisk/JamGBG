@@ -692,53 +692,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce049c180d440da499c1481064a53c8a, type: 3}
---- !u!1 &1220248323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1220248325}
-  - component: {fileID: 1220248324}
-  m_Layer: 0
-  m_Name: DropManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1220248324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220248323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d79857ba0e125aa4ab9f3b435fe91687, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenRounds: 3
-  dropables:
-  - {fileID: 4965283168468006897, guid: d570abd9fafef5940ab97ae73145f433, type: 3}
-  dropChance: 
---- !u!4 &1220248325
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1220248323}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.601025, y: 8.005029, z: -1.0760589}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1833513420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -895,6 +848,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &718558645850836758
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.601025
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.005029
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0760589
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546899, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 718558647063546901, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
+      propertyPath: m_Name
+      value: DropManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4bbc3ea4f62a5c42a61c8482efd434a, type: 3}
 --- !u!1001 &2780605236250361894
 PrefabInstance:
   m_ObjectHideFlags: 0
