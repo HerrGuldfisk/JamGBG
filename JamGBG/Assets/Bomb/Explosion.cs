@@ -48,6 +48,8 @@ public class Explosion : MonoBehaviour
                 rb.AddForceAtPosition(direction.normalized * power, transform.position, ForceMode2D.Impulse);
             } 
         }
-        Destroy(gameObject);
+        ParticleSystem exp = GetComponent<ParticleSystem>();
+        exp.Play();
+        Destroy(gameObject, exp.main.duration);
     }
 }
