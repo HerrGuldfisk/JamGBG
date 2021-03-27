@@ -1,0 +1,33 @@
+{
+    "name": "GeneralInput",
+    "maps": [
+        {
+            "name": "General",
+            "id": "b19c634c-b1c6-45ec-8e4a-1a4225a1d1c6",
+            "actions": [
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "ea521264-2c50-4474-ad47-a5d051ba1af9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "adc2d529-261f-45ce-8e36-c63821eda0a7",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
