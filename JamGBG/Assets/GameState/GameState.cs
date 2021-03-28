@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameState : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GameState : MonoBehaviour
 
     public static void Win(string winner)
     {
-        winScreen.GetComponentInChildren<Text>().text = winner;
+        winScreen.GetComponentInChildren<TextMeshProUGUI>().text = winner;
         winScreen.alpha = 1;
         winstate = true;
 		Time.timeScale = 0;
