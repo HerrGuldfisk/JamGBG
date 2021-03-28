@@ -14,7 +14,7 @@ public class HeliMove : MonoBehaviour
 	private float speed = 0.0f;
 	private float startSpeed = 4f;
 	private float maxSpeed = 30.0f;
-	private float acce = 30.0f;
+	private float acce = 100.0f;
 	private float dece = 200.0f;
 
     private void Awake()
@@ -117,7 +117,7 @@ public class HeliMove : MonoBehaviour
 			}
 		}
 
-		Debug.LogWarning(speed);
+		//Debug.LogWarning(speed);
 
 		position.x = transform.position.x + speed * Time.deltaTime;
 		transform.position = position;
