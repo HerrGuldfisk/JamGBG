@@ -78,7 +78,7 @@ public class DropManager : MonoBehaviour
 
 	private void PlayerBrickSwap(PlayerDropAndChance _playerDropAndChance)
 	{
-		_playerDropAndChance.playerDropScript.DropBrick();
+		_playerDropAndChance.playerDropScript.DropBrick(timeBetweenRounds);
 
 		if (UnityEngine.Random.value < _playerDropAndChance.DropChance())
         {

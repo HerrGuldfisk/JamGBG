@@ -38,6 +38,7 @@ Transform:
   - {fileID: 2809653668296565184}
   - {fileID: 3934870585301152757}
   - {fileID: 1031237112012178620}
+  - {fileID: 3609756033133386334}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -163,8 +164,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brick: {fileID: 4965283168468006897, guid: d570abd9fafef5940ab97ae73145f433, type: 3}
   autoDrop: 1
-  timer: 2
   horizontalSpeed: 10
+  timeBetweenDrops: 4
+  timeLeft: 0
+  dropCooldownBar: {fileID: 4710921614238936147, guid: acc66fcde7d269b4abee19a8b879bafc, type: 3}
+  barPosInWorld: {fileID: 3609756033133386334}
   isOverlap: 0
 --- !u!61 &5487766854239792473
 BoxCollider2D:
@@ -300,6 +304,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a876892fcbbe0634a9a212d1aa13c315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5639572159479151763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3609756033133386334}
+  m_Layer: 0
+  m_Name: CooldownBarSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3609756033133386334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639572159479151763}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.66, z: -0.91862327}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5487766854239792421}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5765731467828590584
 GameObject:
   m_ObjectHideFlags: 0
