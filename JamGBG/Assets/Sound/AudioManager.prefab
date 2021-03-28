@@ -80,7 +80,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: mainTheme
-    clip: {fileID: 8300000, guid: f78194ce1921ae449b0e5db182562078, type: 3}
+    clip: {fileID: 8300000, guid: 72a35569dec9a6142bdc76432aad5690, type: 3}
     channel: {fileID: -6457931958452085021, guid: f229246de7e9f2941b603849aff9a845, type: 2}
     volume: 1
     pitch: 1
