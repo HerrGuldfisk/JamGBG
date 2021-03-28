@@ -104,6 +104,7 @@ public class Drop : MonoBehaviour
 		nextBody2D = Instantiate(brick, transform.position + new Vector3(0, -1.65f, 0), Quaternion.identity, transform).GetComponent<Rigidbody2D>();
 
 		guideLines.SetLines(nextBody2D.transform.position, nextBody2D.gameObject.GetComponent<BoxCollider2D>().size.x);
+		guideLines.SetRect(nextBody2D.transform.position, nextBody2D.gameObject.GetComponent<BoxCollider2D>().size.x);
 
 		spriteRenderer.sprite = closedHook;
 	}
