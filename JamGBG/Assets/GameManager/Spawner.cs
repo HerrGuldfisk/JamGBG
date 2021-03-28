@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.InputSystem;
 
 public class Spawner : MonoBehaviour
@@ -36,17 +38,19 @@ public class Spawner : MonoBehaviour
 
 		for (int i = 0; i < numberOfPlayers; i++)
 		{
-			// Instantiate(winZone, new Vector3(widthMin + shortDistance + longDistance * i, heightMin + (heightMax * 0.75f), 0), Quaternion.identity).GetComponent<WinZoneOwner>().playerID = "Player " + (i + 1).ToString();
+			//CREATE A WINZONES
 			GameObject zone = Instantiate(winZone, new Vector3(widthMin + shortDistance + longDistance * i, heightMin + 3, 0), Quaternion.identity);
 			zone.transform.SetParent(null);
 
 			Vector3 zonePos = Camera.main.WorldToScreenPoint(zone.transform.position);
 
-			GameObject tempText = Instantiate(scoreCounterText, new Vector3(zonePos.x - 120, zonePos.y + 50, 0), Quaternion.identity);
+			//CREATE THE SCORETEXT
+			GameObject tempText = Instantiate(scoreCounterText, new Vector3(zonePos.x - 120, zonePos.y, 0), Quaternion.identity);
 			tempText.transform.SetParent(FindObjectOfType<Canvas>().transform);
+			tempText.GetComponent<TextMeshProUGUI>().color = Color.black;
 			zone.GetComponent<ZoneBrain>().scoreTextField = tempText;
 
-			//SET GROUND SPRITE
+			//SET GROUND SPRITE FOR THE WINZONES
 			foreach (Transform child in zone.transform)
             {
 				if (child.CompareTag("Ground"))
