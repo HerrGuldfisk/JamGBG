@@ -44,6 +44,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: mainTheme
+    clip: {fileID: 8300000, guid: 72a35569dec9a6142bdc76432aad5690, type: 3}
+    channel: {fileID: -6457931958452085021, guid: f229246de7e9f2941b603849aff9a845, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: freeze
     clip: {fileID: 8300000, guid: 5f152bf87f4fadc499bcf72be40ed086, type: 3}
     channel: {fileID: -5248779768134238144, guid: f229246de7e9f2941b603849aff9a845, type: 2}
@@ -79,11 +86,18 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: mainTheme
-    clip: {fileID: 8300000, guid: 72a35569dec9a6142bdc76432aad5690, type: 3}
+  - name: click
+    clip: {fileID: 8300000, guid: 390ef29863778f141a4c13d060eca1a6, type: 3}
     channel: {fileID: -6457931958452085021, guid: f229246de7e9f2941b603849aff9a845, type: 2}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: win
+    clip: {fileID: 8300000, guid: 0ccf5f724c9ac0444bc99da1374aa331, type: 3}
+    channel: {fileID: -6457931958452085021, guid: f229246de7e9f2941b603849aff9a845, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
   mainMixer: {fileID: 24100000, guid: f229246de7e9f2941b603849aff9a845, type: 2}

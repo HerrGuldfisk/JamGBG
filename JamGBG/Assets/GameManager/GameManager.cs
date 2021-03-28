@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		}
+		AudioManager.Instance.PlayAudio("win");
 		GameState.Win("Player " + playerIndex.ToString() + " is the winner!");
 	}
 }
