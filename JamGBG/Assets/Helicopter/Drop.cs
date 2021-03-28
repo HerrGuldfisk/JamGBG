@@ -77,7 +77,7 @@ public class Drop : MonoBehaviour
 		{
 			nextBody2D.simulated = true;
 			nextBody2D.transform.SetParent(null);
-			nextBody2D.velocity = new Vector2(GetComponent<HeliMove>().dir.x * horizontalSpeed / 5f, 0);
+			//nextBody2D.velocity = new Vector2(GetComponent<HeliMove>().dir.x * horizontalSpeed / 5f, 0);
 		}
 
 		StartCoroutine(SpawnAfterDelay(spawnDelay, timeUntilNextDrop-spawnDelay));

@@ -10,10 +10,12 @@ public class DropManager : MonoBehaviour
 	float timeLeft;
 
 	[SerializeField] GameObject defaultBrick;
+	[SerializeField] GameObject bomb;
 	[SerializeField] GameObject[] specialBricks;
 	[HideInInspector] public List<PlayerDropAndChance> playerDrops = new List<PlayerDropAndChance>();
 	[Range(0, 1)] [SerializeField] float specialStartChance = 0;
-	[Range(0, 1)] [SerializeField] float specialChanceIncrease = 0.1f;
+	[Range(0, 1)] [SerializeField] float specialChanceIncrease = 0.15f;
+	[Range(0, 1)] [SerializeField] float bombChanceIfSpecial = 0.5f;
 
 	private int currentPlayer = 0;
 
@@ -82,7 +84,14 @@ public class DropManager : MonoBehaviour
 
 		if (UnityEngine.Random.value < _playerDropAndChance.DropChance())
         {
-			_playerDropAndChance.playerDropScript.brick = specialBricks[UnityEngine.Random.Range(0, specialBricks.Length)];
+			if (UnityEngine.Random.value < bombChanceIfSpecial)
+            {
+				_playerDropAndChance.playerDropScript.brick = bomb;
+			}
+            else
+            {
+				_playerDropAndChance.playerDropScript.brick = specialBricks[UnityEngine.Random.Range(0, specialBricks.Length)];
+			}
 			_playerDropAndChance.SetDropChance(specialStartChance);
 		}
         else
