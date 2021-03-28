@@ -127,12 +127,12 @@ public class GameManager : MonoBehaviour
 
 				if(playersWithMaxPoints > 1)
 				{
-					GameState.Win("Game is a draw!");
+					GameState.Win("It's a draw!");
 					return;
 				}
 			}
 		}
 		AudioManager.Instance.PlayAudio("win");
-		GameState.Win("Player " + playerIndex.ToString() + " is the winner!");
+		GameState.Win("Player " + playerIndex.ToString() + " won!");
 	}
 }

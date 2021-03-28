@@ -399,7 +399,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5037035942164216772, guid: 60f686c46350ea3499245a05b507a1d7, type: 3}
       propertyPath: roundTimer
-      value: 180
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5037035942164216773, guid: 60f686c46350ea3499245a05b507a1d7, type: 3}
       propertyPath: m_Name
