@@ -12,8 +12,8 @@ public class HeliMove : MonoBehaviour
 	Vector3 position;
 
 	private float speed = 0.0f;
-	private float startSpeed = 4f;
-	private float maxSpeed = 30.0f;
+	private float startSpeed = 2f;
+	private float maxSpeed = 40.0f;
 	private float acce = 100.0f;
 	private float dece = 200.0f;
 
@@ -25,7 +25,7 @@ public class HeliMove : MonoBehaviour
     public void OnMove(InputValue input)
 	{
 		dir = input.Get<Vector2>();
-		Debug.Log(dir.x);
+		//Debug.Log(dir.x);
 	}
 
 	private void Update()
@@ -64,38 +64,27 @@ public class HeliMove : MonoBehaviour
 			}
 		} */
 
+		/*
 		if (dir.x != 0)
 		{
 			if (speed == 0)
 			{
 				speed = startSpeed * dir.x;
 			}
-		}
+		}*/
 
-		if (dir.x > 0 && speed > -maxSpeed)
+		if (dir.x > 0 && speed > -maxSpeed-1)
 		{
 			if (speed < maxSpeed)
 			{
-				//speed += acce * Time.deltaTime;
-
-				speed = Mathf.Min(maxSpeed, speed + acce * Time.deltaTime);
-			}
-			else
-			{
-				speed = maxSpeed;
+				speed = Mathf.Clamp(speed + acce * Time.deltaTime, 0, maxSpeed);
 			}
 		}
-		else if (dir.x < 0 && speed < maxSpeed)
+		else if (dir.x < 0 && speed < maxSpeed+1)
 		{
 			if (speed > -maxSpeed)
 			{
-				//speed -= acce * Time.deltaTime;
-
-				speed = Mathf.Max(-maxSpeed, speed - acce * Time.deltaTime);
-			}
-			else
-			{
-				speed = -maxSpeed;
+				speed = Mathf.Clamp(speed - acce * Time.deltaTime, -maxSpeed, 0);
 			}
 		}
 		else 
@@ -117,7 +106,10 @@ public class HeliMove : MonoBehaviour
 			}
 		}
 
-		//Debug.LogWarning(speed);
+		if (speed != 0)
+		{
+			Debug.LogWarning(speed);
+		}
 
 		position.x = transform.position.x + speed * Time.deltaTime;
 		transform.position = position;
