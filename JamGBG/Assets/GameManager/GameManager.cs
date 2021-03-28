@@ -25,10 +25,9 @@ public class GameManager : MonoBehaviour
 
 	#endregion
 
-	public float numberOfPlayers;
+	public int numberOfPlayers;
 
 	public GameObject winZone;
-	public GameObject ground;
 	public GameObject player;
 	public GameObject scoreCounterText;
 
@@ -61,7 +60,7 @@ public class GameManager : MonoBehaviour
 		{
 			SceneManager.LoadScene(index);
 			Debug.Log(numberOfPlayers);
-			StartCoroutine(PlaceObjects());
+			StartCoroutine(GetComponent<Spawner>().PlaceObjects());
 			StartCoroutine(CountdownTimer());
 		}
 	}
@@ -88,6 +87,10 @@ public class GameManager : MonoBehaviour
 		}
 		currentTime = 0f;
 
+		minutes = Mathf.FloorToInt(currentTime / 60);
+		seconds = Mathf.FloorToInt(currentTime % 60);
+		timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
 		WinnerIs();
 	}
 
@@ -102,7 +105,7 @@ public class GameManager : MonoBehaviour
 			if(zones[i].totalPoints > maxPoints)
 			{
 				maxPoints = zones[i].totalPoints;
-				player = i + 1;
+				player = i;
 			}
 		}
 
@@ -116,58 +119,11 @@ public class GameManager : MonoBehaviour
 
 				if(playersWithMaxPoints > 1)
 				{
-					Debug.Log("Game is a draw!");
+					GameState.Win("Game is a draw!");
 					return;
 				}
 			}
 		}
-
-		Debug.Log("Player " + player + " is the winner!");
-	}
-
-	IEnumerator PlaceObjects()
-	{
-		yield return new WaitForSeconds(.01f);
-
-		float widthMin = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
-		float widthMax = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.scaledPixelWidth, 0, 0)).x;
-
-		float heightMin = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).y;
-		float heightMax = Camera.main.ScreenToWorldPoint(new Vector3(0, Camera.main.scaledPixelHeight, 0)).y + Mathf.Abs(heightMin);
-
-		float distanceBetweeenZones = (widthMax - widthMin) / (numberOfPlayers + 1);
-		float longDistance = (widthMax - widthMin) / numberOfPlayers;
-		float shortDistance = (widthMax - widthMin) / (2 * numberOfPlayers);
-
-		for (int i = 0; i < numberOfPlayers; i++)
-		{
-			// Instantiate(winZone, new Vector3(widthMin + shortDistance + longDistance * i, heightMin + (heightMax * 0.75f), 0), Quaternion.identity).GetComponent<WinZoneOwner>().playerID = "Player " + (i + 1).ToString();
-			GameObject zone = Instantiate(winZone, new Vector3(widthMin + shortDistance + longDistance * i, heightMin + (heightMax * 0.03f), 0), Quaternion.identity);
-			zone.transform.SetParent(null);
-
-			Vector3 zonePos = Camera.main.WorldToScreenPoint(zone.transform.position);
-
-			GameObject tempText = Instantiate(scoreCounterText, new Vector3(zonePos.x - 120, zonePos.y + 50, 0), Quaternion.identity);
-			tempText.transform.SetParent(FindObjectOfType<Canvas>().transform);
-			zone.GetComponent<ZoneBrain>().scoreTextField = tempText;
-		}
-
-		for(int i = 0; i < numberOfPlayers; i++)
-		{
-			if(i == 0)
-			{
-				Destroy(Instantiate(player, new Vector3(10000, heightMin + (heightMax * 0.8f), 0), Quaternion.identity), 0.01f);
-				Instantiate(player, new Vector3(widthMin + shortDistance + longDistance * i, heightMin + (heightMax * 0.8f), 0), Quaternion.identity);
-			}
-			else
-			{
-				Debug.Log("Player joined");
-				GameObject temp = Instantiate(player, new Vector3(widthMin + shortDistance + longDistance * i, heightMin + (heightMax * 0.8f), 0), Quaternion.identity);
-				temp.GetComponent<PlayerInput>().SwitchCurrentActionMap("Gamer" + i.ToString());
-				temp.transform.SetParent(null);
-			}
-
-
-		}
+		GameState.Win("Player " + player + " is the winner!");
 	}
 }

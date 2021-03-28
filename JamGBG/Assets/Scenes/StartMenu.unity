@@ -2924,6 +2924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1520298622}
   - component: {fileID: 1520298621}
+  - component: {fileID: 1520298623}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -2945,10 +2946,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfPlayers: 0
   winZone: {fileID: 7985059246108372158, guid: a4b0af6c0d2be0945bc67b4143da187f, type: 3}
-  ground: {fileID: 1519719278807525729, guid: 30f7bfedb4db34c4dac47c90646c2513, type: 3}
   player: {fileID: 5487766854239792478, guid: ce049c180d440da499c1481064a53c8a, type: 3}
   scoreCounterText: {fileID: 1710596800104063060, guid: 8d36a9c2118a7d944bd1b5f28a0c4f3c, type: 3}
-  roundTimer: 70
+  roundTimer: 90
   timerText: {fileID: 716352090}
 --- !u!4 &1520298622
 Transform:
@@ -2965,6 +2965,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1520298623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520298620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862471209e857d54e9a44e8100a88274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1576168256
 GameObject:
   m_ObjectHideFlags: 0
