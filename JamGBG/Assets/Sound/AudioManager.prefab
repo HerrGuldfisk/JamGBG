@@ -84,6 +84,6 @@ MonoBehaviour:
     channel: {fileID: -6457931958452085021, guid: f229246de7e9f2941b603849aff9a845, type: 2}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   mainMixer: {fileID: 24100000, guid: f229246de7e9f2941b603849aff9a845, type: 2}
