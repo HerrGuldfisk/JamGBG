@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		AudioManager.Instance.PlayAudio("mainTheme");
+		StartCoroutine(DelayMainTheme());
     }
 
     // Update is called once per frame
@@ -47,6 +47,12 @@ public class GameManager : MonoBehaviour
     {
 
     }
+
+	IEnumerator DelayMainTheme()
+	{
+		yield return new WaitForSecondsRealtime(0.1f);
+		AudioManager.Instance.PlayAudio("mainTheme");
+	}
 
 	public void LoadScene(int index)
 	{
