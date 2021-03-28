@@ -63,11 +63,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862471209e857d54e9a44e8100a88274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSprites:
+  closedHookSprites:
   - {fileID: 21300000, guid: 11a0c1a383ff25049a3696aefbfba0c4, type: 3}
   - {fileID: 21300000, guid: f15331cc1f2aab042bd33499edfd36b7, type: 3}
   - {fileID: 21300000, guid: 2edb43bfec81d41459cf37631969ff64, type: 3}
   - {fileID: 21300000, guid: c717e947f670e85498100c6825cfe9ba, type: 3}
+  openHookSprites:
+  - {fileID: 21300000, guid: 0362b818757c48d419436016ac178b19, type: 3}
+  - {fileID: 21300000, guid: 4d548eeb9b1883b4e966ecc3efea1997, type: 3}
+  - {fileID: 21300000, guid: 87baf4cbfa62068469297c55e0e6036f, type: 3}
+  - {fileID: 21300000, guid: e33f97470f745f14ca45d596c4e191cd, type: 3}
   platformSprites:
   - {fileID: 21300000, guid: 68b1f092d2507694b8272960cec6e8c9, type: 3}
   - {fileID: 21300000, guid: 2501487aa00ab9b4795aa6847801205d, type: 3}
