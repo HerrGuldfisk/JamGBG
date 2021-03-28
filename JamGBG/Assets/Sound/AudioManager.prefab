@@ -89,7 +89,7 @@ MonoBehaviour:
   - name: click
     clip: {fileID: 8300000, guid: 390ef29863778f141a4c13d060eca1a6, type: 3}
     channel: {fileID: -6457931958452085021, guid: f229246de7e9f2941b603849aff9a845, type: 2}
-    volume: 1
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
