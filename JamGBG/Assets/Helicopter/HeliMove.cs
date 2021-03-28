@@ -8,7 +8,7 @@ public class HeliMove : MonoBehaviour
 {
 
 	public Vector2 dir;
-	public float speed = 3;
+	public float speed;
     // Start is called before the first frame update
 
 	public void OnMove(InputValue input)
