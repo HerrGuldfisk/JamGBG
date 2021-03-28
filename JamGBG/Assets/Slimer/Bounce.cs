@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bounce : MonoBehaviour
 {
-    private float radius = 5f;
-    private float bouncy = 0.65f;
+    private float radius = 5.0f;
+    private float bouncy = 0.35f;
 
     private List<Collider2D> cldrList = new List<Collider2D>();
 
@@ -32,11 +32,11 @@ public class Bounce : MonoBehaviour
                     cldrList.Add(radiusCheck[i].GetComponent<Collider2D>());
                 }
             }
-            _freeze(cldrList);
+            _bounce(cldrList);
         }
     }
 
-    void _freeze(List<Collider2D> cldrs)
+    void _bounce(List<Collider2D> cldrs)
     {
         if (cldrList != null)
         {

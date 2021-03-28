@@ -5,6 +5,7 @@ using UnityEngine;
 public class Freeze : MonoBehaviour
 {
     private float radius = 5f;
+    private float bouncy = 0.10f;
 
     private List<Rigidbody2D> rbList = new List<Rigidbody2D>();
 
@@ -43,8 +44,14 @@ public class Freeze : MonoBehaviour
         {
             foreach (Rigidbody2D rb in rbodies)
             {
-                rb.bodyType = RigidbodyType2D.Static;
+                Collider2D cldr = rb.GetComponent<Collider2D>();
+                cldr.enabled = false;
+                PhysicsMaterial2D newMaterial = Instantiate(cldr.sharedMaterial);
+                newMaterial.bounciness = bouncy;
+                cldr.sharedMaterial = newMaterial;
+                cldr.enabled = true;
 
+                rb.bodyType = RigidbodyType2D.Static;
                 rb.GetComponent<SpriteRenderer>().color = Color.blue;
             } 
         }
