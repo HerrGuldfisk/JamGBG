@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bounce : MonoBehaviour
 {
     private float radius = 5f;
+    private float bouncy = 0.65f;
 
     private List<Collider2D> cldrList = new List<Collider2D>();
 
@@ -48,7 +49,7 @@ public class Bounce : MonoBehaviour
 
                 cldr.enabled = false;
                 PhysicsMaterial2D newMaterial = Instantiate(cldr.sharedMaterial);
-                newMaterial.bounciness = 1;
+                newMaterial.bounciness = bouncy;
                 cldr.sharedMaterial = newMaterial;
                 cldr.enabled = true;
 
