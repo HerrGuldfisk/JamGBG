@@ -12,7 +12,7 @@ public class HeliMove : MonoBehaviour
 	Vector3 position;
 
 	private float speed = 0.0f;
-	private float startSpeed = 2f;
+	//private float startSpeed = 2f;
 	private float maxSpeed = 40.0f;
 	private float acce = 100.0f;
 	private float dece = 200.0f;
@@ -108,7 +108,7 @@ public class HeliMove : MonoBehaviour
 
 		if (speed != 0)
 		{
-			Debug.LogWarning(speed);
+			//Debug.LogWarning(speed);
 		}
 
 		position.x = transform.position.x + speed * Time.deltaTime;

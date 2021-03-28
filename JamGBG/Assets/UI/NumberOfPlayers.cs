@@ -15,6 +15,7 @@ public class NumberOfPlayers : MonoBehaviour
 
 	public void OnMove(InputValue value)
 	{
+		AudioManager.Instance.PlayAudio("click");
 		Vector2 dir = value.Get<Vector2>();
 
 		if(dir.x > 0)
@@ -45,6 +46,7 @@ public class NumberOfPlayers : MonoBehaviour
 
 	public void OnSubmit()
 	{
+		AudioManager.Instance.PlayAudio("click");
 		GameManager.Instance.numberOfPlayers = currentPlayers;
 		GameManager.Instance.LoadScene(1);
 	}
