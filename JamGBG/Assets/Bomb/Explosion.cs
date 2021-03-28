@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    private float power = 21f;
-    private float radius = 1.8f;
+    private float power = 30f;
+    private float radius = 5f;
 
     private List<Rigidbody2D> rbList = new List<Rigidbody2D>();
 

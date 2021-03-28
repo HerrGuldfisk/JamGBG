@@ -10,8 +10,8 @@ public class HeliMove : MonoBehaviour
 	public Vector2 dir;
 
 	private float speed = 0.0f;
-	private float maxSpeed = 50.0f;
-	private float acce = 50.0f;
+	private float maxSpeed = 30.0f;
+	private float acce = 40.0f;
 	private float dece = 50.0f;
 
     // Start is called before the first frame update
