@@ -172,6 +172,8 @@ MonoBehaviour:
   dropCooldownBar: {fileID: 4710921614238936147, guid: acc66fcde7d269b4abee19a8b879bafc, type: 3}
   barPosInWorld: {fileID: 3609756033133386334}
   isOverlap: 0
+  closedHook: {fileID: 21300000, guid: 11a0c1a383ff25049a3696aefbfba0c4, type: 3}
+  openHook: {fileID: 21300000, guid: 0362b818757c48d419436016ac178b19, type: 3}
 --- !u!61 &5487766854239792473
 BoxCollider2D:
   m_ObjectHideFlags: 0

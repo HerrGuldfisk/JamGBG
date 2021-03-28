@@ -11,7 +11,8 @@ public class Spawner : MonoBehaviour
 	GameObject scoreCounterText;
 	int numberOfPlayers;
 
-	[SerializeField] Sprite[] playerSprites;
+	[SerializeField] Sprite[] closedHookSprites;
+	[SerializeField] Sprite[] openHookSprites;
 	[SerializeField] Sprite[] platformSprites;
 
 	public IEnumerator PlaceObjects()
@@ -70,7 +71,9 @@ public class Spawner : MonoBehaviour
 				newPlayer.GetComponent<PlayerInput>().SwitchCurrentActionMap("Gamer" + i.ToString());
 				newPlayer.transform.SetParent(null);
 			}
-			newPlayer.GetComponent<SpriteRenderer>().sprite = playerSprites[i];
+			newPlayer.GetComponent<SpriteRenderer>().sprite = closedHookSprites[i];
+			newPlayer.GetComponent<Drop>().closedHook = closedHookSprites[i];
+			newPlayer.GetComponent<Drop>().openHook = openHookSprites[i];
 		}
 	}
 }

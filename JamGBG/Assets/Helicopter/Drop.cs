@@ -28,8 +28,13 @@ public class Drop : MonoBehaviour
 
 	private GuideLines guideLines;
 
+	public Sprite closedHook;
+	public Sprite openHook;
+	SpriteRenderer spriteRenderer;
+
     void Start()
     {
+		spriteRenderer = GetComponent<SpriteRenderer>();
 		audioSource = GetComponent<AudioSource>();
 
 		//cooldown bar setup
@@ -81,8 +86,9 @@ public class Drop : MonoBehaviour
 		{
 			nextBody2D.simulated = true;
 			nextBody2D.transform.SetParent(null);
-			//nextBody2D.velocity = new Vector2(GetComponent<HeliMove>().dir.x * horizontalSpeed / 5f, 0);
 		}
+
+		spriteRenderer.sprite = openHook;
 
 		StartCoroutine(SpawnAfterDelay(spawnDelay, timeUntilNextDrop-spawnDelay));
 	}
@@ -95,9 +101,11 @@ public class Drop : MonoBehaviour
 		timeBetweenDrops = timeUntilDrop;
 		timeLeft = timeUntilDrop;
 
-		nextBody2D = Instantiate(brick, transform.position + new Vector3(0, -1, 0), Quaternion.identity, transform).GetComponent<Rigidbody2D>();
+		nextBody2D = Instantiate(brick, transform.position + new Vector3(0, -1.65f, 0), Quaternion.identity, transform).GetComponent<Rigidbody2D>();
 
 		guideLines.SetLines(nextBody2D.transform.position, nextBody2D.gameObject.GetComponent<BoxCollider2D>().size.x);
+
+		spriteRenderer.sprite = closedHook;
 	}
 
 
