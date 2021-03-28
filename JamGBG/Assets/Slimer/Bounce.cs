@@ -56,6 +56,7 @@ public class Bounce : MonoBehaviour
                 cldr.GetComponent<SpriteRenderer>().color = Color.green;
             } 
         }
+        AudioManager.Instance.PlayAudio("bouncy");
         ParticleSystem exp = GetComponent<ParticleSystem>();
         exp.Play();
         Destroy(gameObject, exp.main.duration);

@@ -55,6 +55,7 @@ public class Freeze : MonoBehaviour
                 rb.GetComponent<SpriteRenderer>().color = Color.blue;
             } 
         }
+        AudioManager.Instance.PlayAudio("freeze");
         ParticleSystem exp = GetComponent<ParticleSystem>();
         exp.Play();
         Destroy(gameObject, exp.main.duration);

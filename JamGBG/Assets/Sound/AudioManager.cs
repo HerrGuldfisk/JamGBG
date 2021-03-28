@@ -46,7 +46,6 @@ public class AudioManager : MonoBehaviour
 	public void PlayAudio(string name, bool loop = false, float rampTime = 0)
 	{
 		// TODO: Add transition time so that audio clips can ramp down.
-
 		Sound s = Array.Find(sounds, sound => sound.name == name);
 		if(s == null)
 		{
