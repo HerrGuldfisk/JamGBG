@@ -98,14 +98,16 @@ public class GameManager : MonoBehaviour
 	{
 		ZoneBrain[] zones = FindObjectsOfType<ZoneBrain>();
 		int maxPoints = 0;
-		int player = 0;
+		int playerIndex = 0;
 
 		for(int i = 0; i < zones.Length; i++)
 		{
 			if(zones[i].totalPoints > maxPoints)
 			{
 				maxPoints = zones[i].totalPoints;
-				player = i;
+				Debug.Log("max points " + maxPoints);
+				playerIndex =  zones.Length - i;
+				Debug.Log("Player index: " + playerIndex);
 			}
 		}
 
@@ -124,6 +126,6 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		}
-		GameState.Win("Player " + player + " is the winner!");
+		GameState.Win("Player " + playerIndex.ToString() + " is the winner!");
 	}
 }

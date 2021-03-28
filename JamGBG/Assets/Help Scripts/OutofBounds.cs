@@ -12,9 +12,6 @@ public class OutofBounds : MonoBehaviour
     {
 		minX = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
 		maxX = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.scaledPixelWidth, 0, 0)).x;
-
-		Debug.Log(minX);
-		Debug.Log(maxX);
 	}
 
 	private void Update()

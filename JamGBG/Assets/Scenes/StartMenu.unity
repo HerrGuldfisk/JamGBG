@@ -2948,7 +2948,7 @@ MonoBehaviour:
   winZone: {fileID: 7985059246108372158, guid: a4b0af6c0d2be0945bc67b4143da187f, type: 3}
   player: {fileID: 5487766854239792478, guid: ce049c180d440da499c1481064a53c8a, type: 3}
   scoreCounterText: {fileID: 1710596800104063060, guid: 8d36a9c2118a7d944bd1b5f28a0c4f3c, type: 3}
-  roundTimer: 90
+  roundTimer: 5
   timerText: {fileID: 716352090}
 --- !u!4 &1520298622
 Transform:
