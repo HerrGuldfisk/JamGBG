@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenRounds: 3
-  dropables:
-  - {fileID: 4965283168468006897, guid: d570abd9fafef5940ab97ae73145f433, type: 3}
-  playerDrops: []
+  defaultBrick: {fileID: 4965283168468006897, guid: d570abd9fafef5940ab97ae73145f433, type: 3}
+  specialBricks:
+  - {fileID: 4965283168468006897, guid: 30aadbaf45f5e2a4a8f87c537ae3ff42, type: 3}
+  - {fileID: 4965283168468006897, guid: c601de86232901441820459f9fc3bbe3, type: 3}
+  - {fileID: 4965283168468006897, guid: 25d30e89192151b4f9c82337a1ea6812, type: 3}
+  specialStartChance: 0
+  specialChanceIncrease: 0.15

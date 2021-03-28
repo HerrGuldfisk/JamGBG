@@ -6,52 +6,65 @@ using UnityEngine;
 public class DropManager : MonoBehaviour
 {
 	public float timeBetweenRounds;
-	private float timeBetweenPlayers;
+	float timeBetweenPlayers;
+	float timeLeft;
 
-	private float timeLeft;
-
-	public GameObject[] dropables;
-
-	private int[] dropChance;
-	private int maxChance;
-
-	[HideInInspector] public List<Drop> playerDrops;
+	[SerializeField] GameObject defaultBrick;
+	[SerializeField] GameObject[] specialBricks;
+	[HideInInspector] public List<PlayerDropAndChance> playerDrops = new List<PlayerDropAndChance>();
+	[Range(0, 1)] [SerializeField] float specialStartChance = 0;
+	[Range(0, 1)] [SerializeField] float specialChanceIncrease = 0.1f;
 
 	private int currentPlayer = 0;
 
-    // Start is called before the first frame update
+	public class PlayerDropAndChance
+    {
+		public Drop playerDropScript;
+		float specialDropChance;
+
+        public PlayerDropAndChance(Drop _playerDropScript, float _specialDropChance)
+        {
+			playerDropScript = _playerDropScript;
+			specialDropChance = _specialDropChance;
+        }
+
+		public void IncreaseDropChance(float _amount)
+        {
+			specialDropChance += _amount;
+		}
+
+		public float DropChance()
+        {
+			return specialDropChance;
+        }
+
+		public void SetDropChance(float _amount)
+        {
+			specialDropChance = _amount;
+        }
+    }
+
     void Start()
     {
-		Drop[] tempdrop = FindObjectsOfType<Drop>();
+		Drop[] dropScriptsInWorld = FindObjectsOfType<Drop>();
 
-		for(int i = 0; i < tempdrop.Length; i++)
+		for(int i = 0; i < dropScriptsInWorld.Length; i++)
 		{
-			playerDrops.Add(tempdrop[i]);
+			playerDrops.Add(new PlayerDropAndChance(dropScriptsInWorld[i], specialStartChance));
 		}
 
 		timeBetweenPlayers = timeBetweenRounds / playerDrops.Count;
 
 		timeLeft = timeBetweenRounds;
-
-		dropChance = new int[dropables.Length];
-
-		CreateDropNumber();
-
-		foreach(int i in dropChance)
-		{
-			print(i);
-		}
     }
 
-	// Update is called once per frame
 	void Update()
     {
 		timeLeft -= Time.deltaTime;
 
 		if (timeLeft <= 0f)
 		{
-			playerDrops[currentPlayer].DropBrick();
-			NextDrop();
+			PlayerBrickSwap(playerDrops[currentPlayer]);
 
 			currentPlayer++;
 			if(currentPlayer >= playerDrops.Count)
@@ -63,41 +76,25 @@ public class DropManager : MonoBehaviour
 		}
     }
 
-	private void NextDrop()
+	private void PlayerBrickSwap(PlayerDropAndChance _playerDropAndChance)
 	{
-		GameObject nextBrick = GetBrick();
-		playerDrops[currentPlayer].brick = nextBrick;
-	}
+		_playerDropAndChance.playerDropScript.DropBrick();
 
-	private void CreateDropNumber()
-	{
-		for(int i = 0; i < dropables.Length; i++)
-		{
-			float tempChance = dropables[i].GetComponent<BrickChance>().chance * 10;
-			maxChance += (int)tempChance;
-			dropChance[i] = maxChance;
+		if (UnityEngine.Random.value < _playerDropAndChance.DropChance())
+        {
+			_playerDropAndChance.playerDropScript.brick = specialBricks[UnityEngine.Random.Range(0, specialBricks.Length)];
+			_playerDropAndChance.SetDropChance(specialStartChance);
 		}
-	}
-
-	private GameObject GetBrick()
-	{
-		int tempNumber = UnityEngine.Random.Range(0, maxChance);
-		for(int i = 0; i < dropChance.Length; i++)
-		{
-			if(tempNumber <= dropChance[i])
-			{
-				Debug.Log(dropables[i].name);
-				return dropables[i];
-			}
+        else
+        {
+			_playerDropAndChance.playerDropScript.brick = defaultBrick;
+			_playerDropAndChance.IncreaseDropChance(specialChanceIncrease);
 		}
-
-		Debug.LogWarning("Shouldn't get here...");
-		return null;
 	}
 
 	public void NewPlayerJoin(Drop newPlayer)
 	{
-		playerDrops.Add(newPlayer);
+		playerDrops.Add(new PlayerDropAndChance(newPlayer, 0));
 		timeBetweenPlayers = timeBetweenRounds / playerDrops.Count;
 	}
 }
