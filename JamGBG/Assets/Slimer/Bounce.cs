@@ -42,11 +42,16 @@ public class Bounce : MonoBehaviour
         {
             foreach (Collider2D cldr in cldrs)
             {
-                if (cldr.GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Dynamic)
+				if (cldr.GetComponent<Rigidbody2D>().constraints == RigidbodyConstraints2D.FreezeAll)
+				{
+					cldr.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+				}
+				/*
+				if (cldr.GetComponent<Rigidbody2D>().bodyType != RigidbodyType2D.Dynamic)
                 {
                     cldr.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                 }
-
+				*/
                 cldr.enabled = false;
                 PhysicsMaterial2D newMaterial = Instantiate(cldr.sharedMaterial);
                 newMaterial.bounciness = bouncy;
@@ -54,8 +59,9 @@ public class Bounce : MonoBehaviour
                 cldr.enabled = true;
 
                 cldr.GetComponent<SpriteRenderer>().color = Color.green;
-            } 
+            }
         }
+        AudioManager.Instance.PlayAudio("bouncy");
         ParticleSystem exp = GetComponent<ParticleSystem>();
         exp.Play();
         Destroy(gameObject, exp.main.duration);

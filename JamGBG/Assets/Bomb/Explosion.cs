@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    private float power = 25f;
+    private float power = 21f;
     private float radius = 1.8f;
 
     private List<Rigidbody2D> rbList = new List<Rigidbody2D>();
@@ -49,16 +49,22 @@ public class Explosion : MonoBehaviour
         {
             foreach (Rigidbody2D rb in rbodies)
             {
+				if(rb.constraints == RigidbodyConstraints2D.FreezeAll)
+				{
+					rb.constraints = RigidbodyConstraints2D.None;
+				}
+				/*
                 if (rb.bodyType != RigidbodyType2D.Dynamic)
-                { 
+                {
                     rb.bodyType = RigidbodyType2D.Dynamic;
                     //rb.GetComponent<SpriteRenderer>().color = Color.white;
-                }
+                }*/
 
                 Vector2 direction = rb.transform.position - transform.position;
                 rb.AddForceAtPosition(direction.normalized * power, transform.position, ForceMode2D.Impulse);
-            } 
+            }
         }
+        AudioManager.Instance.PlayAudio("explosion");
         ParticleSystem exp = GetComponent<ParticleSystem>();
         exp.Play();
         Destroy(gameObject, exp.main.duration);

@@ -8,7 +8,12 @@ public class HeliMove : MonoBehaviour
 {
 
 	public Vector2 dir;
-	public float speed = 3;
+
+	private float speed = 0.0f;
+	private float maxSpeed = 30.0f;
+	private float acce = 30.0f;
+	private float dece = 1000.0f;
+
     // Start is called before the first frame update
 
 	public void OnMove(InputValue input)
@@ -24,6 +29,29 @@ public class HeliMove : MonoBehaviour
 
 	private void Move()
 	{
+		if (dir.x != 0)
+		{
+			if (speed < maxSpeed)
+			{
+				speed += acce * Time.deltaTime;
+			}
+			else if (speed > maxSpeed)
+			{
+				speed = maxSpeed;
+			}
+		}
+		else
+		{
+			if (speed > 0)
+			{
+				speed -= dece * Time.deltaTime;
+			}
+			else
+			{
+				speed = 0;
+			}
+		}
+
 		transform.position += new Vector3(dir.x, 0, 0) * speed * Time.deltaTime;
 	}
 }
