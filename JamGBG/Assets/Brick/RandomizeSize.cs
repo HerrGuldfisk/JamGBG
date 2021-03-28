@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class RandomizeSize : MonoBehaviour
 {
-    [SerializeField] float Wmin = 0.8f;
-    [SerializeField] float Wmax = 1.6f;
-    [SerializeField] float Hmin = 0.6f;
-    [SerializeField] float Hmax = 1.2f;
+    [SerializeField] Sprite[] sprites;
 
     private void Awake()
     {
-        float width = transform.localScale.x * Random.Range(Wmin, Wmax);
-        float height = transform.localScale.y * Random.Range(Hmin, Hmax);
-        Vector3 scale = new Vector3(width, height, transform.localScale.z);
+        int choose = Random.Range(0, sprites.Length);
+        GetComponent<SpriteRenderer>().sprite = sprites[choose];
 
-        transform.localScale = scale;
+        if (choose == 1)
+        {
+            GetComponent<BoxCollider2D>().size = new Vector2(1.33f * 1.5f, 1.33f);
+        }
+        else if (choose == 2)
+        {
+            GetComponent<BoxCollider2D>().size = new Vector2(1.33f * 2f, 1.33f);
+        }
     }
 
 }
