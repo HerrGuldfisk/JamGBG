@@ -97,7 +97,7 @@ public class Drop : MonoBehaviour
 
 		nextBody2D = Instantiate(brick, transform.position + new Vector3(0, -1, 0), Quaternion.identity, transform).GetComponent<Rigidbody2D>();
 
-		guideLines.SetLines(nextBody2D.transform.position, nextBody2D.transform.localScale.x);
+		guideLines.SetLines(nextBody2D.transform.position, nextBody2D.gameObject.GetComponent<BoxCollider2D>().size.x);
 	}
 
 
