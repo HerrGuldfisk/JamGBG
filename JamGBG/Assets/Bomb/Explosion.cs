@@ -49,10 +49,13 @@ public class Explosion : MonoBehaviour
         {
             foreach (Rigidbody2D rb in rbodies)
             {
-				if(rb.constraints == RigidbodyConstraints2D.FreezeAll)
+				/*
+                if(rb.constraints == RigidbodyConstraints2D.FreezeAll)
 				{
 					rb.constraints = RigidbodyConstraints2D.None;
-				}
+				}*/
+
+
 				/*
                 if (rb.bodyType != RigidbodyType2D.Dynamic)
                 {
