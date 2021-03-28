@@ -50,10 +50,10 @@ public class Freeze : MonoBehaviour
                 newMaterial.bounciness = bouncy;
                 cldr.sharedMaterial = newMaterial;
                 cldr.enabled = true;
-
-                rb.bodyType = RigidbodyType2D.Static;
+				rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                // rb.bodyType = RigidbodyType2D.Static;
                 rb.GetComponent<SpriteRenderer>().color = Color.blue;
-            } 
+            }
         }
         AudioManager.Instance.PlayAudio("freeze");
         ParticleSystem exp = GetComponent<ParticleSystem>();

@@ -21,6 +21,12 @@ public class ZoneBrain : MonoBehaviour
 		ChangeText();
 	}
 
+	public void SetPoints(int value)
+	{
+		totalPoints = value;
+		ChangeText();
+	}
+
 	void ChangeText()
 	{
 		scoreTextField.GetComponent<TextMeshProUGUI>().text = totalPoints.ToString();

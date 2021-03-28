@@ -49,15 +49,20 @@ public class Explosion : MonoBehaviour
         {
             foreach (Rigidbody2D rb in rbodies)
             {
+				if(rb.constraints == RigidbodyConstraints2D.FreezeAll)
+				{
+					rb.constraints = RigidbodyConstraints2D.None;
+				}
+				/*
                 if (rb.bodyType != RigidbodyType2D.Dynamic)
-                { 
+                {
                     rb.bodyType = RigidbodyType2D.Dynamic;
                     //rb.GetComponent<SpriteRenderer>().color = Color.white;
-                }
+                }*/
 
                 Vector2 direction = rb.transform.position - transform.position;
                 rb.AddForceAtPosition(direction.normalized * power, transform.position, ForceMode2D.Impulse);
-            } 
+            }
         }
         AudioManager.Instance.PlayAudio("explosion");
         ParticleSystem exp = GetComponent<ParticleSystem>();

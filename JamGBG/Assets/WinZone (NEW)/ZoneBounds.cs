@@ -11,9 +11,10 @@ public class ZoneBounds : MonoBehaviour
 		brain = GetComponentInParent<ZoneBrain>();
 	}
 
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Brick"))
+		if (collision.gameObject.GetComponent<Collision>())
 		{
 			brain.AddPoint();
 		}
@@ -21,7 +22,7 @@ public class ZoneBounds : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Brick"))
+		if (collision.gameObject.GetComponent<Collision>())
 		{
 			brain.RemovePoint();
 		}
