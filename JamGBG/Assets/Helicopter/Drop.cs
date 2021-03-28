@@ -26,10 +26,12 @@ public class Drop : MonoBehaviour
 
 	Rigidbody2D nextBody2D;
 
+	private GuideLines guideLines;
+
     void Start()
     {
 		audioSource = GetComponent<AudioSource>();
-		
+
 		//cooldown bar setup
 		barTrans = Instantiate(dropCooldownBar, Camera.main.WorldToScreenPoint(barPosInWorld.position), Quaternion.identity, FindObjectOfType<Canvas>().transform).transform;
 		fillSlider = barTrans.GetComponent<Slider>();
@@ -42,6 +44,8 @@ public class Drop : MonoBehaviour
 				child.GetComponent<Image>().color = GetComponent<SpriteRenderer>().color;
             }
         }
+
+		guideLines = GetComponent<GuideLines>();
 }
 
     private void Update()
@@ -92,6 +96,8 @@ public class Drop : MonoBehaviour
 		timeLeft = timeUntilDrop;
 
 		nextBody2D = Instantiate(brick, transform.position + new Vector3(0, -1, 0), Quaternion.identity, transform).GetComponent<Rigidbody2D>();
+
+		guideLines.SetLines(nextBody2D.transform.position, nextBody2D.transform.localScale.x);
 	}
 
 
