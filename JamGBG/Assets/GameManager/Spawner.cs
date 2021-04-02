@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
 		scoreCounterText = GameManager.Instance.scoreCounterText;
 		numberOfPlayers = GameManager.Instance.numberOfPlayers;
 
-		yield return new WaitForSeconds(.01f);
+		yield return new WaitForSeconds(.10f);
 
 		float widthMin = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
 		float widthMax = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.scaledPixelWidth, 0, 0)).x;

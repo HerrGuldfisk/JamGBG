@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class WinCheck : MonoBehaviour
 {
-    //improve by not checking trigger each frame - instead check only when colliding with a new brick
+	GameState gameState;
 
-    private void OnTriggerStay2D(Collider2D trigger)
+	private void Start()
+	{
+		gameState = FindObjectOfType<GameState>();
+	}
+
+	//improve by not checking trigger each frame - instead check only when colliding with a new brick
+
+	private void OnTriggerStay2D(Collider2D trigger)
     {
-        if (GameState.winstate==false && trigger.GetComponent<WinZoneOwner>())
+        if (gameState.winstate==false && trigger.GetComponent<WinZoneOwner>())
         {
             Collider2D[] contacts = new Collider2D[10];
             ContactFilter2D contactFilter = new ContactFilter2D();
@@ -20,7 +27,7 @@ public class WinCheck : MonoBehaviour
                 {
                     if (collider.CompareTag("Brick"))
                     {
-                        GameState.Win(trigger.GetComponent<WinZoneOwner>().playerID);
+                        gameState.Win(trigger.GetComponent<WinZoneOwner>().playerID);
                     }
                 }
             }

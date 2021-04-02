@@ -36,6 +36,12 @@ public class GameManager : MonoBehaviour
 
 	public TextMeshProUGUI timerText;
 
+	private Coroutine currentTimer = null;
+	private Coroutine spawner = null;
+
+	public GameObject inGameOverlay;
+	private GameObject currentOverlay = null;
+
 	// Start is called before the first frame update
 	void Start()
     {
@@ -58,16 +64,32 @@ public class GameManager : MonoBehaviour
 	{
 		if (index == 0)
 		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-			GameState.winstate = false;
-			GameState.winScreen.alpha = 0;
+			GameState tempGamestate = FindObjectOfType<GameState>();
+			SceneManager.LoadScene(0);
+			tempGamestate.winstate = false;
+			tempGamestate.winScreen.alpha = 0;
 		}
 		else
 		{
+			CompleteReset();
 			SceneManager.LoadScene(index);
-			Debug.Log(numberOfPlayers);
-			StartCoroutine(GetComponent<Spawner>().PlaceObjects());
-			StartCoroutine(CountdownTimer());
+			currentOverlay = Instantiate(inGameOverlay, transform);
+			spawner = StartCoroutine(GetComponent<Spawner>().PlaceObjects());
+			currentTimer = StartCoroutine(CountdownTimer());
+		}
+	}
+
+	private void CompleteReset()
+	{
+		if(currentOverlay != null)
+		{
+			Destroy(currentOverlay.gameObject);
+		}
+
+		if(currentTimer != null)
+		{
+			StopCoroutine(currentTimer);
+			StopCoroutine(spawner);
 		}
 	}
 
@@ -78,6 +100,7 @@ public class GameManager : MonoBehaviour
 		// yield return new WaitForSecondsRealtime(startDelay);
 
 		float currentTime = roundTimer + startDelay;
+		Debug.Log(currentTime);
 
 		float minutes = Mathf.FloorToInt(currentTime / 60);
 		float seconds = Mathf.FloorToInt(currentTime % 60);
@@ -85,7 +108,7 @@ public class GameManager : MonoBehaviour
 
 		while (currentTime > 0)
 		{
-			currentTime -= Time.deltaTime;
+			currentTime -= Time.deltaTime * 1.5f;
 			minutes = Mathf.FloorToInt(currentTime / 60);
 			seconds = Mathf.FloorToInt(currentTime % 60);
 			timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -117,6 +140,8 @@ public class GameManager : MonoBehaviour
 			}
 		}
 
+		GameState tempGamestate = FindObjectOfType<GameState>();
+
 		int playersWithMaxPoints = 0;
 
 		for (int i = 0; i < zones.Length; i++)
@@ -127,12 +152,12 @@ public class GameManager : MonoBehaviour
 
 				if(playersWithMaxPoints > 1)
 				{
-					GameState.Win("It's a draw!");
+					tempGamestate.Win("It's a draw!");
 					return;
 				}
 			}
 		}
 		AudioManager.Instance.PlayAudio("win");
-		GameState.Win("Player " + playerIndex.ToString() + " won!");
+		tempGamestate.Win("Player " + playerIndex.ToString() + " won!");
 	}
 }
